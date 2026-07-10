@@ -1,8 +1,16 @@
 # Programma Evento
 
+🔗 **Sito online:** https://riccardofaccini9-pixel.github.io/San-Marino/
+
 Sito statico (HTML/CSS/JS puro, nessun backend) per mostrare allo staff il programma
 di un evento su 3 giorni: orari, luoghi, protagonisti e note di sicurezza per ogni
-sotto-evento, con filtro per persona.
+sotto-evento, con filtro per persona. Essendo un sito pubblico su internet (non un
+file locale), è raggiungibile da qualunque dispositivo con questo link — PC, tablet,
+cellulari — senza installare nulla.
+
+> Se il link sopra non risponde ancora: GitHub Pages va attivato una volta sola,
+> vedi la sezione [Pubblicazione su GitHub Pages](#pubblicazione-su-github-pages)
+> qui sotto. Dopo l'attivazione (1-2 minuti) resta sempre raggiungibile a quell'indirizzo.
 
 ## Come funziona
 
