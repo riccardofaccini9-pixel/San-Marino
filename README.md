@@ -32,20 +32,40 @@ cellulari — senza installare nulla.
 ## Come si aggiornano i dati per tutti
 
 Il sito è statico: il file [`data.json`](data.json) è la fonte "pubblicata" che tutti
-vedono. Il flusso di lavoro è:
+vedono. Mentre modifichi persone/eventi in admin, le modifiche vengono salvate come
+**bozza** nel browser (localStorage) e vedi subito l'anteprima nella vista pubblica
+sotto — se chiudi la pagina senza pubblicare, la bozza resta lì al prossimo accesso
+da quello stesso dispositivo/browser.
 
-1. Apri il sito pubblicato, clicca il lucchetto ed entra come admin.
-2. Modifica persone/eventi: le modifiche vengono salvate come **bozza** nel browser
-   (localStorage) e vedi subito l'anteprima nella vista pubblica sotto.
-3. Quando sei soddisfatto, clicca **"Esporta data.json"**: scarica il file aggiornato.
-4. Sostituisci il file `data.json` nel repository GitHub con quello scaricato
-   (via web GitHub: apri il file, "Edit", incolla il contenuto, "Commit changes" —
-   oppure `git add data.json && git commit && git push` da riga di comando).
-5. GitHub Pages si aggiorna in automatico (di solito entro 1-2 minuti) e tutti i
-   membri dello staff vedranno il nuovo programma al prossimo caricamento della pagina.
+Per rendere le modifiche visibili **a tutti, su qualunque dispositivo**, c'è il
+pulsante **"🚀 Pubblica su GitHub"** nella scheda Programma: scrive `data.json`
+direttamente nel repository, senza passaggi manuali. Serve una configurazione
+una tantum:
 
-Il pulsante **"Scarta bozza"** cancella le modifiche non ancora esportate e ricarica
-i dati pubblicati da `data.json`.
+1. Vai su [github.com/settings/personal-access-tokens/new](https://github.com/settings/personal-access-tokens/new)
+   (richiede login GitHub) e crea un token **fine-grained** con:
+   - **Repository access**: solo questo repository (`San-Marino`).
+   - **Permissions → Contents**: `Read and write`.
+2. Copia il token generato (inizia con `github_pat_...`).
+3. Nel pannello admin del sito, sezione **"Configura token GitHub"**, incollalo e
+   salva. Resta memorizzato solo in quel browser (mai visibile ai visitatori del sito).
+4. Da quel momento, ogni volta che clicchi **"Pubblica su GitHub"** il programma
+   aggiornato viene scritto sul repository e diventa visibile a tutti entro 1-2 minuti.
+
+⚠️ Chiunque abbia questo token può modificare il repository: non condividerlo, e
+revocalo da GitHub (Settings → Developer settings → Personal access tokens) a fine
+evento, visto che il sito serve solo per questo mese.
+
+Il pulsante **"⬇ Scarica data.json"** resta disponibile come backup manuale (utile
+se in un momento non hai a portata di mano il token), e **"Scarta bozza"** cancella
+le modifiche non ancora pubblicate ricaricando i dati pubblicati da `data.json`.
+
+## Logo
+
+Carica il file del logo nella cartella [`assets/`](assets/) con il nome `logo.svg`
+oppure `logo.png` (va bene anche solo uno dei due): comparirà automaticamente in
+alto a sinistra, accanto al titolo. Se non carichi nulla, l'intestazione resta
+comunque corretta senza spazio vuoto. Dettagli in [`assets/README.txt`](assets/README.txt).
 
 ## Pubblicazione su GitHub Pages
 

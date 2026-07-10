@@ -9,7 +9,10 @@
 <body>
   <div id="app">
     <header class="topbar">
-      <h1>Programma Evento</h1>
+      <div class="brand">
+        <img id="logo" class="logo" alt="Logo evento" />
+        <h1>Programma Evento</h1>
+      </div>
       <div class="topbar-controls">
         <label class="person-filter">
           <span>Persona:</span>
@@ -100,8 +103,27 @@
         </div>
 
         <div class="admin-footer">
-          <button id="exportBtn">⬇ Esporta data.json</button>
+          <button id="publishBtn">🚀 Pubblica su GitHub</button>
+          <div id="publishStatus" class="publish-status hidden"></div>
+
+          <button id="exportBtn" class="secondary">⬇ Scarica data.json (backup manuale)</button>
           <button id="discardBtn" class="secondary">Scarta bozza</button>
+
+          <details class="pin-settings">
+            <summary>Configura token GitHub (per "Pubblica")</summary>
+            <p class="help-text">
+              Serve una volta sola: crea un
+              <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">token GitHub "fine-grained"</a>
+              limitato a questo repository, con permesso <strong>Contents: Read and write</strong>.
+              Il token resta salvato solo in questo browser: non condividerlo, e revocalo su GitHub a fine evento.
+            </p>
+            <form id="tokenForm" class="inline-form">
+              <input type="password" id="ghTokenInput" placeholder="Incolla qui il token" autocomplete="off" />
+              <button type="submit">Salva token</button>
+            </form>
+            <button type="button" id="clearTokenBtn" class="link-btn">Rimuovi token salvato</button>
+          </details>
+
           <details class="pin-settings">
             <summary>Cambia PIN admin</summary>
             <form id="pinForm" class="inline-form">

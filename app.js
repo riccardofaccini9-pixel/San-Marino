@@ -5,6 +5,14 @@
 const DEFAULT_PIN = "0000";
 const DRAFT_KEY = "eventoData_draft";
 const PIN_KEY = "eventoData_pin";
+const TOKEN_KEY = "eventoData_ghToken";
+
+// Repository GitHub dove vive data.json: la pubblicazione dal pannello admin
+// scrive direttamente qui tramite l'API GitHub (serve un token, vedi README).
+const GH_OWNER = "riccardofaccini9-pixel";
+const GH_REPO = "San-Marino";
+const GH_BRANCH = "main";
+const GH_PATH = "data.json";
 
 // Copia di riserva usata se data.json non e' raggiungibile (es. aperto come file://)
 const FALLBACK_DATA = {
@@ -367,6 +375,96 @@ function discardDraft() {
   location.reload();
 }
 
+// ---------- Pubblicazione diretta su GitHub ----------
+
+function toBase64Utf8(str) {
+  return btoa(unescape(encodeURIComponent(str)));
+}
+
+function setPublishStatus(message, isError = false) {
+  const box = $("#publishStatus");
+  box.textContent = message;
+  box.classList.remove("hidden");
+  box.classList.toggle("publish-error", isError);
+  box.classList.toggle("publish-ok", !isError);
+}
+
+async function publishToGithub() {
+  const token = localStorage.getItem(TOKEN_KEY);
+  if (!token) {
+    setPublishStatus('Configura prima il token GitHub qui sotto ("Configura token GitHub").', true);
+    return;
+  }
+
+  const apiUrl = `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${GH_PATH}`;
+  const headers = {
+    Authorization: `Bearer ${token}`,
+    Accept: "application/vnd.github+json"
+  };
+
+  setPublishStatus("Pubblicazione in corso...");
+  try {
+    const getRes = await fetch(`${apiUrl}?ref=${GH_BRANCH}`, { headers });
+    if (!getRes.ok) {
+      throw new Error(getRes.status === 401 || getRes.status === 403
+        ? "Token non valido o senza i permessi necessari."
+        : `Impossibile leggere data.json dal repository (HTTP ${getRes.status}).`);
+    }
+    const current = await getRes.json();
+
+    const putRes = await fetch(apiUrl, {
+      method: "PUT",
+      headers,
+      body: JSON.stringify({
+        message: "Aggiornamento programma evento",
+        content: toBase64Utf8(JSON.stringify(data, null, 2)),
+        sha: current.sha,
+        branch: GH_BRANCH
+      })
+    });
+
+    if (!putRes.ok) {
+      const err = await putRes.json().catch(() => ({}));
+      throw new Error(err.message || `Errore durante la pubblicazione (HTTP ${putRes.status}).`);
+    }
+
+    localStorage.removeItem(DRAFT_KEY);
+    setPublishStatus("✅ Pubblicato! Sarà visibile a tutti entro 1-2 minuti.");
+  } catch (e) {
+    setPublishStatus(`❌ ${e.message}`, true);
+  }
+}
+
+function saveGithubToken(token) {
+  token = token.trim();
+  if (!token) return;
+  localStorage.setItem(TOKEN_KEY, token);
+  setPublishStatus("Token salvato in questo browser.");
+}
+
+function clearGithubToken() {
+  if (!confirm("Rimuovere il token GitHub salvato in questo browser?")) return;
+  localStorage.removeItem(TOKEN_KEY);
+  setPublishStatus("Token rimosso.");
+}
+
+// ---------- Logo ----------
+
+function loadLogo() {
+  const img = $("#logo");
+  const candidates = ["assets/logo.svg", "assets/logo.png"];
+  let i = 0;
+  const tryNext = () => {
+    if (i >= candidates.length) {
+      img.remove();
+      return;
+    }
+    img.src = candidates[i++];
+  };
+  img.addEventListener("error", tryNext);
+  tryNext();
+}
+
 // ---------- Init ----------
 
 function setupTabs() {
@@ -413,6 +511,14 @@ function setupEvents() {
 
   $("#exportBtn").addEventListener("click", exportData);
   $("#discardBtn").addEventListener("click", discardDraft);
+  $("#publishBtn").addEventListener("click", publishToGithub);
+
+  $("#tokenForm").addEventListener("submit", (e) => {
+    e.preventDefault();
+    saveGithubToken($("#ghTokenInput").value);
+    $("#ghTokenInput").value = "";
+  });
+  $("#clearTokenBtn").addEventListener("click", clearGithubToken);
 
   $("#pinForm").addEventListener("submit", (e) => {
     e.preventDefault();
@@ -428,6 +534,7 @@ function setupEvents() {
 }
 
 async function init() {
+  loadLogo();
   await loadData();
   renderPersonSelect();
   renderPublicView();
