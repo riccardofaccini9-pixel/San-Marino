@@ -1,60 +1,451 @@
 {
   "people": [
-    "Mario Rossi",
-    "Giulia Bianchi",
-    "Luca Verdi",
-    "Anna Neri"
+    "Cassian",
+    "Robert",
+    "Samina",
+    "Riccardo",
+    "Massimiliano",
+    "Matteo",
+    "Noemi",
+    "Davide"
   ],
   "events": [
     {
-      "id": "e1",
+      "id": "emrezhij07uj3",
       "day": 1,
-      "start": "09:00",
-      "end": "10:00",
-      "title": "Accoglienza ospiti",
-      "location": "Ingresso principale",
-      "notes": "Controllare gli accrediti prima di far entrare gli ospiti",
-      "participants": ["Mario Rossi"]
+      "start": "08:00",
+      "end": "09:30",
+      "title": "Gruppo indirizzo Strategico",
+      "location": "S.M.I.",
+      "notes": "Segreteria Lavoro",
+      "participants": [
+        "Samina",
+        "Riccardo",
+        "Massimiliano",
+        "Noemi"
+      ]
     },
     {
-      "id": "e2",
+      "id": "emrezkr2sn4yk",
       "day": 1,
-      "start": "10:00",
+      "start": "08:00",
+      "end": "09:30",
+      "title": "Gruppo difesa e sovranità",
+      "location": "S.M.I.",
+      "notes": "Segreteria affari esteri",
+      "participants": [
+        "Cassian",
+        "Robert",
+        "Matteo",
+        "Davide"
+      ]
+    },
+    {
+      "id": "emrezlvutzbga",
+      "day": 1,
+      "start": "09:30",
+      "end": "11:00",
+      "title": "Gruppo indirizzo Strategico",
+      "location": "S.M.I.",
+      "notes": "Segreteria finanze",
+      "participants": [
+        "Riccardo",
+        "Massimiliano",
+        "Noemi"
+      ]
+    },
+    {
+      "id": "emrezshxzhpi8",
+      "day": 1,
+      "start": "09:30",
+      "end": "11:00",
+      "title": "Gruppo difesa e sovranità",
+      "location": "S.M.I.",
+      "notes": "Segreteria lavoro",
+      "participants": [
+        "Cassian",
+        "Robert",
+        "Davide"
+      ]
+    },
+    {
+      "id": "emrezu878a93n",
+      "day": 1,
+      "start": "09:30",
       "end": "11:30",
-      "title": "Apertura ufficiale",
-      "location": "Sala Grande",
+      "title": "Gruppo crittografia",
+      "location": "S.M.I.",
+      "notes": "Bertaccini",
+      "participants": [
+        "Samina",
+        "Matteo"
+      ]
+    },
+    {
+      "id": "emrezwviny0ir",
+      "day": 1,
+      "start": "14:30",
+      "end": "16:00",
+      "title": "Gruppo indirizzo Strategico",
+      "location": "S.M.I.",
+      "notes": "Segreteria Interni",
+      "participants": [
+        "Samina",
+        "Riccardo",
+        "Massimiliano",
+        "Noemi"
+      ]
+    },
+    {
+      "id": "emrf0tggvor1c",
+      "day": 1,
+      "start": "14:30",
+      "end": "16:00",
+      "title": "Gruppo difesa e sovranità",
+      "location": "S.M.I.",
+      "notes": "Segreteria istruzione",
+      "participants": [
+        "Cassian",
+        "Robert",
+        "Matteo",
+        "Davide"
+      ]
+    },
+    {
+      "id": "emrf0uw36bvvg",
+      "day": 1,
+      "start": "16:00",
+      "end": "17:30",
+      "title": "Gruppo indirizzo Strategico",
+      "location": "S.M.I.",
+      "notes": "Segreteria istruzione",
+      "participants": [
+        "Samina",
+        "Riccardo",
+        "Massimiliano",
+        "Noemi"
+      ]
+    },
+    {
+      "id": "emrf0wm5hxwwk",
+      "day": 1,
+      "start": "16:00",
+      "end": "17:30",
+      "title": "Gruppo difesa e sovranità",
+      "location": "S.M.I.",
+      "notes": "Segreteria sanità",
+      "participants": [
+        "Cassian",
+        "Robert",
+        "Matteo",
+        "Davide"
+      ]
+    },
+    {
+      "id": "emrf0yavlhlas",
+      "day": 1,
+      "start": "18:00",
+      "end": "19:30",
+      "title": "Gruppo giovani",
+      "location": "S.M.I.",
       "notes": "",
-      "participants": ["Giulia Bianchi"]
+      "participants": [
+        "Cassian",
+        "Robert",
+        "Samina",
+        "Riccardo",
+        "Massimiliano",
+        "Matteo",
+        "Noemi",
+        "Davide"
+      ]
     },
     {
-      "id": "e3",
-      "day": 1,
-      "start": "10:00",
-      "end": "11:30",
-      "title": "Gestione parcheggio",
-      "location": "Parcheggio esterno",
-      "notes": "Uscita di emergenza sempre libera",
-      "participants": ["Luca Verdi"]
+      "id": "emrf0zdk2g3g3",
+      "day": 2,
+      "start": "08:00",
+      "end": "09:30",
+      "title": "Gruppo indirizzo Strategico",
+      "location": "S.M.I.",
+      "notes": "Segreteria sanità",
+      "participants": [
+        "Samina",
+        "Riccardo",
+        "Massimiliano",
+        "Noemi"
+      ]
     },
     {
-      "id": "e4",
+      "id": "emrf10ufg5lp7",
+      "day": 2,
+      "start": "08:00",
+      "end": "09:30",
+      "title": "Gruppo difesa e sovranità",
+      "location": "S.M.I.",
+      "notes": "Segreteria territorio",
+      "participants": [
+        "Cassian",
+        "Robert",
+        "Matteo",
+        "Davide"
+      ]
+    },
+    {
+      "id": "emrf15uzg5f95",
       "day": 2,
       "start": "09:30",
-      "end": "12:00",
-      "title": "Workshop A",
-      "location": "Sala Blu",
-      "notes": "",
-      "participants": ["Anna Neri", "Mario Rossi"]
+      "end": "11:00",
+      "title": "Gruppo indirizzo Strategico",
+      "location": "S.M.I.",
+      "notes": "Segreteria territorio",
+      "participants": [
+        "Riccardo",
+        "Massimiliano",
+        "Noemi"
+      ]
     },
     {
-      "id": "e5",
+      "id": "emrf16yfbk8br",
+      "day": 2,
+      "start": "09:30",
+      "end": "11:00",
+      "title": "Gruppo difesa e sovranità",
+      "location": "S.M.I.",
+      "notes": "Segreteria industria",
+      "participants": [
+        "Cassian",
+        "Robert",
+        "Davide"
+      ]
+    },
+    {
+      "id": "emrf18g2wesef",
+      "day": 2,
+      "start": "10:00",
+      "end": "12:00",
+      "title": "Gruppo BRIA",
+      "location": "S.M.I.",
+      "notes": "Chiappa",
+      "participants": [
+        "Samina",
+        "Matteo"
+      ]
+    },
+    {
+      "id": "emrf19xuj7yr0",
+      "day": 2,
+      "start": "11:00",
+      "end": "12:30",
+      "title": "Gruppo indirizzo Strategico",
+      "location": "S.M.I.",
+      "notes": "Segreteria Industria",
+      "participants": [
+        "Riccardo",
+        "Massimiliano",
+        "Noemi"
+      ]
+    },
+    {
+      "id": "emrf1apkybyjj",
+      "day": 2,
+      "start": "11:00",
+      "end": "12:30",
+      "title": "Gruppo difesa e sovranità",
+      "location": "S.M.I.",
+      "notes": "Segreteria Interni",
+      "participants": [
+        "Cassian",
+        "Robert",
+        "Davide"
+      ]
+    },
+    {
+      "id": "emrf1fh0tukmm",
+      "day": 2,
+      "start": "14:30",
+      "end": "16:00",
+      "title": "Gruppo indirizzo Strategico",
+      "location": "S.M.I.",
+      "notes": "Ufficio Informatica",
+      "participants": [
+        "Samina",
+        "Riccardo",
+        "Massimiliano",
+        "Noemi"
+      ]
+    },
+    {
+      "id": "emrf1gfiosnvj",
+      "day": 2,
+      "start": "14:30",
+      "end": "16:00",
+      "title": "Gruppo difesa e sovranità",
+      "location": "S.M.I.",
+      "notes": "Segreteria Giustizia",
+      "participants": [
+        "Cassian",
+        "Robert",
+        "Matteo",
+        "Davide"
+      ]
+    },
+    {
+      "id": "emrf1ht0le6t3",
+      "day": 2,
+      "start": "16:00",
+      "end": "17:30",
+      "title": "Gruppo indirizzo Strategico",
+      "location": "S.M.I.",
+      "notes": "Segreteria Giustizia",
+      "participants": [
+        "Samina",
+        "Riccardo",
+        "Massimiliano",
+        "Noemi"
+      ]
+    },
+    {
+      "id": "emrf1igrea274",
+      "day": 2,
+      "start": "16:00",
+      "end": "17:30",
+      "title": "Gruppo difesa e sovranità",
+      "location": "S.M.I.",
+      "notes": "Segreteria Turismo",
+      "participants": [
+        "Cassian",
+        "Robert",
+        "Matteo",
+        "Davide"
+      ]
+    },
+    {
+      "id": "emrf1k7817o2h",
+      "day": 2,
+      "start": "17:30",
+      "end": "19:30",
+      "title": "GRUPPO SANITÀ",
+      "location": "S.M.I.",
+      "notes": "Vescovi",
+      "participants": [
+        "Cassian",
+        "Robert",
+        "Samina",
+        "Riccardo",
+        "Massimiliano",
+        "Matteo",
+        "Noemi",
+        "Davide"
+      ]
+    },
+    {
+      "id": "emrf1mjdbynu3",
       "day": 3,
-      "start": "18:00",
-      "end": "20:00",
-      "title": "Cena di chiusura",
-      "location": "Terrazza",
-      "notes": "Verificare allergie alimentari con il catering",
-      "participants": ["Giulia Bianchi", "Luca Verdi", "Anna Neri", "Mario Rossi"]
+      "start": "08:00",
+      "end": "09:30",
+      "title": "Gruppo indirizzo Strategico",
+      "location": "S.M.I.",
+      "notes": "Segreteria Turismo",
+      "participants": [
+        "Samina",
+        "Riccardo",
+        "Massimiliano",
+        "Noemi"
+      ]
+    },
+    {
+      "id": "emrf1npuls2uw",
+      "day": 3,
+      "start": "08:00",
+      "end": "09:30",
+      "title": "Gruppo difesa e sovranità",
+      "location": "S.M.I.",
+      "notes": "Ufficio Informatica",
+      "participants": [
+        "Cassian",
+        "Robert",
+        "Matteo",
+        "Davide"
+      ]
+    },
+    {
+      "id": "emrf1oekbu0bn",
+      "day": 3,
+      "start": "09:30",
+      "end": "11:00",
+      "title": "Gruppo indirizzo Strategico",
+      "location": "S.M.I.",
+      "notes": "ANIS",
+      "participants": [
+        "Samina",
+        "Riccardo",
+        "Massimiliano",
+        "Noemi"
+      ]
+    },
+    {
+      "id": "emrf1q21kk7nv",
+      "day": 3,
+      "start": "09:30",
+      "end": "11:00",
+      "title": "Gruppo difesa e sovranità",
+      "location": "S.M.I.",
+      "notes": "Forze Armate",
+      "participants": [
+        "Cassian",
+        "Robert",
+        "Matteo",
+        "Davide"
+      ]
+    },
+    {
+      "id": "emrf1quxf3ysu",
+      "day": 3,
+      "start": "11:00",
+      "end": "12:30",
+      "title": "Gruppo indirizzo Strategico",
+      "location": "S.M.I.",
+      "notes": "Forze Armate",
+      "participants": [
+        "Samina",
+        "Riccardo",
+        "Massimiliano",
+        "Noemi"
+      ]
+    },
+    {
+      "id": "emrf1rpo909tm",
+      "day": 3,
+      "start": "11:00",
+      "end": "12:30",
+      "title": "Gruppo difesa e sovranità",
+      "location": "S.M.I.",
+      "notes": "ANIS",
+      "participants": [
+        "Cassian",
+        "Robert",
+        "Matteo",
+        "Davide"
+      ]
+    },
+    {
+      "id": "emrf1swwp2ywv",
+      "day": 3,
+      "start": "13:00",
+      "end": "15:00",
+      "title": "GRUPPO PROGETTO DATA CENTER",
+      "location": "S.M.I.",
+      "notes": "Limonta, Roscini, Lattaruli",
+      "participants": [
+        "Cassian",
+        "Robert",
+        "Samina",
+        "Riccardo",
+        "Massimiliano",
+        "Matteo",
+        "Noemi",
+        "Davide"
+      ]
     }
   ]
 }
