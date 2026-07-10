@@ -1,0 +1,60 @@
+{
+  "people": [
+    "Mario Rossi",
+    "Giulia Bianchi",
+    "Luca Verdi",
+    "Anna Neri"
+  ],
+  "events": [
+    {
+      "id": "e1",
+      "day": 1,
+      "start": "09:00",
+      "end": "10:00",
+      "title": "Accoglienza ospiti",
+      "location": "Ingresso principale",
+      "notes": "Controllare gli accrediti prima di far entrare gli ospiti",
+      "participants": ["Mario Rossi"]
+    },
+    {
+      "id": "e2",
+      "day": 1,
+      "start": "10:00",
+      "end": "11:30",
+      "title": "Apertura ufficiale",
+      "location": "Sala Grande",
+      "notes": "",
+      "participants": ["Giulia Bianchi"]
+    },
+    {
+      "id": "e3",
+      "day": 1,
+      "start": "10:00",
+      "end": "11:30",
+      "title": "Gestione parcheggio",
+      "location": "Parcheggio esterno",
+      "notes": "Uscita di emergenza sempre libera",
+      "participants": ["Luca Verdi"]
+    },
+    {
+      "id": "e4",
+      "day": 2,
+      "start": "09:30",
+      "end": "12:00",
+      "title": "Workshop A",
+      "location": "Sala Blu",
+      "notes": "",
+      "participants": ["Anna Neri", "Mario Rossi"]
+    },
+    {
+      "id": "e5",
+      "day": 3,
+      "start": "18:00",
+      "end": "20:00",
+      "title": "Cena di chiusura",
+      "location": "Terrazza",
+      "notes": "Verificare allergie alimentari con il catering",
+      "participants": ["Giulia Bianchi", "Luca Verdi", "Anna Neri", "Mario Rossi"]
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Programma Evento</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <h1>Programma Evento</h1>
+      <div class="topbar-controls">
+        <label class="person-filter">
+          <span>Persona:</span>
+          <select id="personSelect">
+            <option value="">Tutti</option>
+          </select>
+        </label>
+        <button id="lockBtn" class="lock-btn" title="Area amministratore" aria-label="Area amministratore">
+          <span id="lockIcon">🔒</span>
+        </button>
+      </div>
+    </header>
+
+    <div class="layout">
+      <main id="publicView" class="public-view"></main>
+
+      <aside id="adminPanel" class="admin-panel hidden">
+        <div class="admin-header">
+          <strong>Area Admin</strong>
+          <button id="logoutBtn" class="link-btn">Esci</button>
+        </div>
+        <div class="admin-tabs">
+          <button class="tab-btn active" data-tab="people">Persone</button>
+          <button class="tab-btn" data-tab="program">Programma</button>
+        </div>
+
+        <div id="tab-people" class="tab-content">
+          <h3>Elenco persone</h3>
+          <form id="addPersonForm" class="inline-form">
+            <input type="text" id="newPersonName" placeholder="Nome e cognome" required />
+            <button type="submit">Aggiungi</button>
+          </form>
+          <ul id="peopleList" class="people-list"></ul>
+        </div>
+
+        <div id="tab-program" class="tab-content hidden">
+          <div id="conflictsBox" class="conflicts-box hidden"></div>
+
+          <h3>Aggiungi / modifica evento</h3>
+          <form id="eventForm" class="event-form">
+            <input type="hidden" id="eventId" />
+            <div class="form-row">
+              <label>Giorno
+                <select id="eventDay">
+                  <option value="1">Giorno 1</option>
+                  <option value="2">Giorno 2</option>
+                  <option value="3">Giorno 3</option>
+                </select>
+              </label>
+              <label>Inizio
+                <input type="time" id="eventStart" required />
+              </label>
+              <label>Fine
+                <input type="time" id="eventEnd" required />
+              </label>
+            </div>
+            <div class="form-row">
+              <label class="grow">Titolo
+                <input type="text" id="eventTitle" placeholder="Nome del sotto-evento" required />
+              </label>
+              <label class="grow">Luogo
+                <input type="text" id="eventLocation" placeholder="Dove si svolge" required />
+              </label>
+            </div>
+            <label>Note (sicurezza / info interne)
+              <textarea id="eventNotes" rows="2" placeholder="Facoltativo"></textarea>
+            </label>
+            <label>Partecipanti
+              <div id="eventParticipants" class="checkbox-list"></div>
+            </label>
+            <div class="form-actions">
+              <button type="submit" id="eventSubmitBtn">Aggiungi evento</button>
+              <button type="button" id="eventCancelBtn" class="secondary hidden">Annulla modifica</button>
+            </div>
+          </form>
+
+          <h3>Eventi inseriti</h3>
+          <div class="table-wrap">
+            <table id="eventsTable" class="events-table">
+              <thead>
+                <tr>
+                  <th>Giorno</th><th>Orario</th><th>Titolo</th><th>Luogo</th><th>Partecipanti</th><th>Note</th><th></th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="admin-footer">
+          <button id="exportBtn">⬇ Esporta data.json</button>
+          <button id="discardBtn" class="secondary">Scarta bozza</button>
+          <details class="pin-settings">
+            <summary>Cambia PIN admin</summary>
+            <form id="pinForm" class="inline-form">
+              <input type="password" id="newPin" maxlength="4" pattern="\d{4}" placeholder="Nuovo PIN (4 cifre)" required />
+              <button type="submit">Salva</button>
+            </form>
+          </details>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <div id="pinModal" class="modal hidden">
+    <div class="modal-box">
+      <h3>Accesso amministratore</h3>
+      <form id="pinForm2">
+        <input type="password" id="pinInput" maxlength="4" pattern="\d{4}" inputmode="numeric" placeholder="Codice a 4 cifre" autofocus required />
+        <div id="pinError" class="pin-error hidden">Codice errato</div>
+        <div class="modal-actions">
+          <button type="button" id="pinCancelBtn" class="secondary">Annulla</button>
+          <button type="submit">Entra</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
