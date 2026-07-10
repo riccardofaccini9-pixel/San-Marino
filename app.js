@@ -16,11 +16,12 @@ const GH_PATH = "data.json";
 
 // Copia di riserva usata se data.json non e' raggiungibile (es. aperto come file://)
 const FALLBACK_DATA = {
+  startDate: null,
   people: ["Mario Rossi", "Giulia Bianchi", "Luca Verdi", "Anna Neri"],
   events: []
 };
 
-let data = { people: [], events: [] };
+let data = { startDate: null, people: [], events: [] };
 let isAdmin = false;
 let editingEventId = null;
 
@@ -38,6 +39,25 @@ function timeToMinutes(t) {
 
 function overlaps(aStart, aEnd, bStart, bEnd) {
   return timeToMinutes(aStart) < timeToMinutes(bEnd) && timeToMinutes(aEnd) > timeToMinutes(bStart);
+}
+
+// Data/ora reale di inizio o fine di un evento, calcolata da data.startDate
+// (Giorno 1) + offset giorni + orario. Ritorna null se startDate non è impostata.
+function eventDateTime(ev, which) {
+  if (!data.startDate) return null;
+  const dt = new Date(data.startDate + "T00:00:00");
+  dt.setDate(dt.getDate() + (Number(ev.day) - 1));
+  const [h, m] = ev[which].split(":").map(Number);
+  dt.setHours(h, m, 0, 0);
+  return dt;
+}
+
+function isEventNow(ev) {
+  const start = eventDateTime(ev, "start");
+  const end = eventDateTime(ev, "end");
+  if (!start || !end) return false;
+  const now = new Date();
+  return now >= start && now < end;
 }
 
 // ---------- Caricamento dati ----------
@@ -109,12 +129,16 @@ function renderPublicView() {
 
     dayEvents.forEach((ev) => {
       const card = document.createElement("div");
-      card.className = "event-card";
+      const now = isEventNow(ev);
+      card.className = "event-card" + (now ? " now" : "");
       const tags = ev.participants.map((p) =>
         `<span class="tag ${p === selectedPerson ? "selected" : ""}">${escapeHtml(p)}</span>`
       ).join("");
       card.innerHTML = `
-        <div class="event-time">${ev.start} - ${ev.end}</div>
+        <div class="event-time">
+          <span class="time-range">${ev.start} - ${ev.end}</span>
+          ${now ? '<span class="now-badge">IN CORSO</span>' : ""}
+        </div>
         <div class="event-main">
           <p class="event-title">${escapeHtml(ev.title)}</p>
           <p class="event-location">📍 ${escapeHtml(ev.location)}</p>
@@ -151,6 +175,7 @@ function enterAdmin() {
   $("#adminPanel").classList.remove("hidden");
   $("#lockBtn").classList.add("unlocked");
   $("#lockIcon").textContent = "🔓";
+  $("#startDateInput").value = data.startDate || "";
   renderAdminPeople();
   renderAdminEvents();
 }
@@ -509,6 +534,12 @@ function setupEvents() {
   $("#eventForm").addEventListener("submit", submitEventForm);
   $("#eventCancelBtn").addEventListener("click", cancelEditEvent);
 
+  $("#startDateInput").addEventListener("change", (e) => {
+    data.startDate = e.target.value || null;
+    saveDraft();
+    renderPublicView();
+  });
+
   $("#exportBtn").addEventListener("click", exportData);
   $("#discardBtn").addEventListener("click", discardDraft);
   $("#publishBtn").addEventListener("click", publishToGithub);
@@ -541,6 +572,7 @@ async function init() {
   renderEventParticipantsCheckboxes();
   setupTabs();
   setupEvents();
+  setInterval(renderPublicView, 30000);
 }
 
 init();

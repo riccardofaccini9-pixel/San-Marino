@@ -124,9 +124,31 @@ body {
 
 .event-card.dim { opacity: 0.4; }
 
+.event-card.now {
+  border-color: var(--primary);
+  border-width: 2px;
+  box-shadow: 0 0 0 3px rgba(11, 61, 120, 0.12);
+}
+
+.now-badge {
+  display: inline-block;
+  margin-top: 5px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  border-radius: 999px;
+  padding: 2px 8px;
+}
+
 .event-time {
   font-weight: 600;
   color: var(--primary);
+}
+
+.time-range {
+  display: block;
   white-space: nowrap;
 }
 
@@ -386,6 +408,31 @@ button.secondary:hover { background: var(--panel-tint); }
   color: var(--danger);
   border: 1px solid var(--danger);
 }
+
+.event-date-settings {
+  background: var(--panel-tint);
+  border-radius: var(--radius);
+  padding: 10px 12px;
+  margin-bottom: 14px;
+}
+
+.event-date-settings label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.event-date-settings input {
+  padding: 6px 9px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  max-width: 180px;
+}
+
+.event-date-settings .help-text { margin: 6px 0 0; }
 
 .conflicts-box {
   background: var(--danger-bg);

@@ -16,14 +16,18 @@ cellulari — senza installare nulla.
 
 - **Vista pubblica**: si apre subito, nessun login. In alto un menu a tendina permette
   di filtrare il programma per singola persona.
+- **Evidenziazione "in corso"**: l'evento che sta avvenendo in questo momento viene
+  evidenziato automaticamente nella vista pubblica (bordo blu + etichetta "IN CORSO"),
+  in base all'orario del dispositivo di chi guarda il sito. Perché funzioni, in admin
+  va impostata la **data del Giorno 1** (Giorno 2 e 3 si calcolano da sola).
 - **Area admin**: cliccando il lucchetto in alto a destra viene richiesto un codice a
   4 cifre (default `0000`, modificabile dal pannello admin una volta entrati).
   Da lì si accede a due schede:
   - **Persone**: elenco di chi può essere assegnato agli eventi.
-  - **Programma**: tabella con giorno, orario, titolo, luogo, note e partecipanti
-    (scelti da un elenco a discesa basato sulla scheda Persone). Il sistema segnala
-    in automatico se una persona risulta assegnata a due eventi con orari sovrapposti
-    nello stesso giorno.
+  - **Programma**: campo per la data del Giorno 1, poi la tabella con giorno, orario,
+    titolo, luogo, note e partecipanti (scelti da un elenco a discesa basato sulla
+    scheda Persone). Il sistema segnala in automatico se una persona risulta
+    assegnata a due eventi con orari sovrapposti nello stesso giorno.
 
 > ⚠️ Il PIN è solo un blocco "visivo" lato client: chiunque guardi il codice sorgente
 > della pagina può bypassarlo. Va benissimo per evitare click accidentali dello staff,
